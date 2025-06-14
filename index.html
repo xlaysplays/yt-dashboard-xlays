@@ -4,28 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Xlays Studio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body>
+  <div class="dashboard">
+    <h1>Xlays Studio Dashboard</h1>
 
-  <div class="p-4">
-    <h1 class="text-3xl font-bold mb-4">🎬 Xlays Studio Dashboard</h1>
-
-    <div class="flex space-x-4 mb-6">
-      <button class="bg-purple-600 px-4 py-2 rounded hover:bg-purple-700">Home</button>
-      <button class="bg-purple-600 px-4 py-2 rounded hover:bg-purple-700">Analytics</button>
-      <button class="bg-purple-600 px-4 py-2 rounded hover:bg-purple-700">Videos</button>
-      <button class="bg-purple-600 px-4 py-2 rounded hover:bg-purple-700">Settings</button>
-      <button class="bg-purple-600 px-4 py-2 rounded hover:bg-purple-700">Credits</button>
+    <div class="buttons">
+      <button class="tab-btn active" onclick="showTab('home')">🏠 Home</button>
+      <button class="tab-btn" onclick="showTab('analytics')">📊 Analytics</button>
+      <button class="tab-btn" onclick="showTab('videos')">🎥 Videos</button>
     </div>
 
-    <div id="mainContent" class="bg-gray-800 p-6 rounded-lg shadow-lg">
-      <h2 class="text-xl font-semibold">Welcome, Xlays!</h2>
-      <p class="mt-2">Here's an overview of your channel today.</p>
-      <!-- We'll add charts and stats here later -->
+    <div id="home" class="tab active">
+      <h2>Welcome, Xlays!</h2>
+      <p>Real-time stats from your channel coming below.</p>
+    </div>
+
+    <div id="analytics" class="tab">
+      <h2>Channel Analytics</h2>
+      <canvas id="viewsChart" width="400" height="200"></canvas>
+    </div>
+
+    <div id="videos" class="tab">
+      <h2>Your Videos</h2>
+      <ul id="videoList"></ul>
     </div>
   </div>
 
+  <script src="script.js"></script>
 </body>
-  </html>
-  
+</html>
